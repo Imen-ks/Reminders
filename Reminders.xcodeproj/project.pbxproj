@@ -7,8 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A824EF0C2A139CB10047A3E5 /* EditImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A824EF0B2A139CB10047A3E5 /* EditImageView.swift */; };
+		A824EF0E2A13AD330047A3E5 /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A824EF0D2A13AD330047A3E5 /* PhotoPickerView.swift */; };
+		A824EF102A141B040047A3E5 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A824EF0F2A141B040047A3E5 /* SummaryView.swift */; };
+		A824EF122A142B410047A3E5 /* TodayRemindersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A824EF112A142B410047A3E5 /* TodayRemindersView.swift */; };
+		A824EF142A142B610047A3E5 /* ScheduledRemindersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A824EF132A142B610047A3E5 /* ScheduledRemindersView.swift */; };
+		A824EF162A142B9C0047A3E5 /* AllRemindersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A824EF152A142B9C0047A3E5 /* AllRemindersView.swift */; };
+		A824EF182A142BB60047A3E5 /* FlaggedRemindersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A824EF172A142BB60047A3E5 /* FlaggedRemindersView.swift */; };
+		A824EF1A2A142BDA0047A3E5 /* CompletedRemindersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A824EF192A142BDA0047A3E5 /* CompletedRemindersView.swift */; };
+		A824EF1C2A145F8C0047A3E5 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A824EF1B2A145F8C0047A3E5 /* CardView.swift */; };
+		A824EF212A16F39D0047A3E5 /* SubtaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A824EF202A16F39D0047A3E5 /* SubtaskRowView.swift */; };
+		A824EF232A1707120047A3E5 /* AddSubtaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A824EF222A1707120047A3E5 /* AddSubtaskView.swift */; };
+		A824EF252A17080B0047A3E5 /* EditSubtaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A824EF242A17080B0047A3E5 /* EditSubtaskView.swift */; };
+		A824EF272A186A020047A3E5 /* SaveTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A824EF262A186A020047A3E5 /* SaveTemplateView.swift */; };
+		A824EF292A19144A0047A3E5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A824EF282A19144A0047A3E5 /* SearchView.swift */; };
+		A824EF2B2A1959890047A3E5 /* SelectTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A824EF2A2A1959890047A3E5 /* SelectTemplateView.swift */; };
+		A83F83792A1173F6006543E2 /* EditReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83F83782A1173F6006543E2 /* EditReminderView.swift */; };
 		A855E4F12A0A361000C90C24 /* RemindersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A855E4F02A0A361000C90C24 /* RemindersApp.swift */; };
-		A855E4F32A0A361000C90C24 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A855E4F22A0A361000C90C24 /* ContentView.swift */; };
 		A855E4F52A0A361200C90C24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A855E4F42A0A361200C90C24 /* Assets.xcassets */; };
 		A855E4F82A0A361200C90C24 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A855E4F72A0A361200C90C24 /* Preview Assets.xcassets */; };
 		A855E4FA2A0A361200C90C24 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A855E4F92A0A361200C90C24 /* Persistence.swift */; };
@@ -16,6 +31,43 @@
 		A855E5072A0A361200C90C24 /* RemindersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A855E5062A0A361200C90C24 /* RemindersTests.swift */; };
 		A855E5112A0A361200C90C24 /* RemindersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A855E5102A0A361200C90C24 /* RemindersUITests.swift */; };
 		A855E5132A0A361200C90C24 /* RemindersUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A855E5122A0A361200C90C24 /* RemindersUITestsLaunchTests.swift */; };
+		A855E5232A0A88B700C90C24 /* ReminderList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A855E5222A0A88B700C90C24 /* ReminderList+CoreDataClass.swift */; };
+		A855E5252A0A88D400C90C24 /* ReminderList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A855E5242A0A88D400C90C24 /* ReminderList+CoreDataProperties.swift */; };
+		A855E5272A0A893900C90C24 /* Reminder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A855E5262A0A893900C90C24 /* Reminder+CoreDataClass.swift */; };
+		A855E5292A0A894C00C90C24 /* Reminder+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A855E5282A0A894C00C90C24 /* Reminder+CoreDataProperties.swift */; };
+		A855E52B2A0A8A0700C90C24 /* ReminderPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = A855E52A2A0A8A0700C90C24 /* ReminderPriority.swift */; };
+		A855E52D2A0A8D1500C90C24 /* Subtask+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A855E52C2A0A8D1500C90C24 /* Subtask+CoreDataClass.swift */; };
+		A855E52F2A0A8D2A00C90C24 /* Subtask+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A855E52E2A0A8D2A00C90C24 /* Subtask+CoreDataProperties.swift */; };
+		A855E5312A0A8E2500C90C24 /* Tag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A855E5302A0A8E2500C90C24 /* Tag+CoreDataClass.swift */; };
+		A855E5332A0A8E3400C90C24 /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A855E5322A0A8E3400C90C24 /* Tag+CoreDataProperties.swift */; };
+		A8698B642A0B0F3000259E3C /* ReminderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8698B632A0B0F3000259E3C /* ReminderListView.swift */; };
+		A8698B662A0B132D00259E3C /* RemindersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8698B652A0B132D00259E3C /* RemindersView.swift */; };
+		A8698B682A0C5ED000259E3C /* HomeScreenViewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8698B672A0C5ED000259E3C /* HomeScreenViewView.swift */; };
+		A8698B6A2A0C63AB00259E3C /* ButtonAddReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8698B692A0C63AB00259E3C /* ButtonAddReminderView.swift */; };
+		A8698B6C2A0C63BF00259E3C /* ButtonAddReminderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8698B6B2A0C63BF00259E3C /* ButtonAddReminderListView.swift */; };
+		A8698B6E2A0C7D5B00259E3C /* CreateReminderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8698B6D2A0C7D5B00259E3C /* CreateReminderListView.swift */; };
+		A887A4E52A1AB38F00C4BACB /* SharingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A887A4E42A1AB38F00C4BACB /* SharingView.swift */; };
+		A887A4E72A1AF3F300C4BACB /* RenderedToPdfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A887A4E62A1AF3F300C4BACB /* RenderedToPdfView.swift */; };
+		A88FCE482A10061B00881D79 /* SelectDueDateAndHourView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FCE472A10061B00881D79 /* SelectDueDateAndHourView.swift */; };
+		A88FCE4A2A1015F100881D79 /* SelectTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FCE492A1015F100881D79 /* SelectTagView.swift */; };
+		A88FCE4C2A10287B00881D79 /* FlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FCE4B2A10287B00881D79 /* FlagView.swift */; };
+		A88FCE4E2A102CF600881D79 /* SelectPriorityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FCE4D2A102CF600881D79 /* SelectPriorityView.swift */; };
+		A88FCE502A1065EF00881D79 /* SelectListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FCE4F2A1065EF00881D79 /* SelectListView.swift */; };
+		A88FCE522A10970B00881D79 /* AddImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FCE512A10970B00881D79 /* AddImageView.swift */; };
+		A89A013C2A0C980B00D284D1 /* ListColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89A013B2A0C980B00D284D1 /* ListColorView.swift */; };
+		A89A013E2A0D119900D284D1 /* ListTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89A013D2A0D119900D284D1 /* ListTextFieldView.swift */; };
+		A89A01422A0D3B5800D284D1 /* ButtonSaveTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89A01412A0D3B5800D284D1 /* ButtonSaveTemplateView.swift */; };
+		A89A01442A0D3E0C00D284D1 /* ReminderRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89A01432A0D3E0C00D284D1 /* ReminderRowView.swift */; };
+		A89E8D0C2A0EDCB8006CDCEF /* ReminderListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E8D0B2A0EDCB8006CDCEF /* ReminderListRowView.swift */; };
+		A89E8D0E2A0EE228006CDCEF /* CreateListTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E8D0D2A0EE228006CDCEF /* CreateListTitleView.swift */; };
+		A89E8D102A0EE244006CDCEF /* SelectListColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E8D0F2A0EE244006CDCEF /* SelectListColorView.swift */; };
+		A89E8D122A0EE46D006CDCEF /* ReminderSortMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E8D112A0EE46D006CDCEF /* ReminderSortMenuView.swift */; };
+		A8BBE9E02A0D9E9C00069FB1 /* CreateReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BBE9DF2A0D9E9C00069FB1 /* CreateReminderView.swift */; };
+		A8BBE9E22A0E6F4A00069FB1 /* CreateReminderDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BBE9E12A0E6F4A00069FB1 /* CreateReminderDetailsView.swift */; };
+		A8D8AE3B2A12EB5200A58970 /* EditReminderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D8AE3A2A12EB5200A58970 /* EditReminderListView.swift */; };
+		A8D8AE3E2A132B9F00A58970 /* Picture+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D8AE3C2A132B9F00A58970 /* Picture+CoreDataClass.swift */; };
+		A8D8AE3F2A132B9F00A58970 /* Picture+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D8AE3D2A132B9F00A58970 /* Picture+CoreDataProperties.swift */; };
+		A8E1A3EE2A1A6289005263F0 /* ButtonCreateListFromTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E1A3ED2A1A6289005263F0 /* ButtonCreateListFromTemplateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,9 +88,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A824EF0B2A139CB10047A3E5 /* EditImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditImageView.swift; sourceTree = "<group>"; };
+		A824EF0D2A13AD330047A3E5 /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
+		A824EF0F2A141B040047A3E5 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
+		A824EF112A142B410047A3E5 /* TodayRemindersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayRemindersView.swift; sourceTree = "<group>"; };
+		A824EF132A142B610047A3E5 /* ScheduledRemindersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledRemindersView.swift; sourceTree = "<group>"; };
+		A824EF152A142B9C0047A3E5 /* AllRemindersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRemindersView.swift; sourceTree = "<group>"; };
+		A824EF172A142BB60047A3E5 /* FlaggedRemindersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlaggedRemindersView.swift; sourceTree = "<group>"; };
+		A824EF192A142BDA0047A3E5 /* CompletedRemindersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedRemindersView.swift; sourceTree = "<group>"; };
+		A824EF1B2A145F8C0047A3E5 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		A824EF202A16F39D0047A3E5 /* SubtaskRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtaskRowView.swift; sourceTree = "<group>"; };
+		A824EF222A1707120047A3E5 /* AddSubtaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubtaskView.swift; sourceTree = "<group>"; };
+		A824EF242A17080B0047A3E5 /* EditSubtaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSubtaskView.swift; sourceTree = "<group>"; };
+		A824EF262A186A020047A3E5 /* SaveTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTemplateView.swift; sourceTree = "<group>"; };
+		A824EF282A19144A0047A3E5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		A824EF2A2A1959890047A3E5 /* SelectTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTemplateView.swift; sourceTree = "<group>"; };
+		A83F83782A1173F6006543E2 /* EditReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditReminderView.swift; sourceTree = "<group>"; };
 		A855E4ED2A0A361000C90C24 /* Reminders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reminders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A855E4F02A0A361000C90C24 /* RemindersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersApp.swift; sourceTree = "<group>"; };
-		A855E4F22A0A361000C90C24 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A855E4F42A0A361200C90C24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A855E4F72A0A361200C90C24 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A855E4F92A0A361200C90C24 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -48,6 +115,43 @@
 		A855E50C2A0A361200C90C24 /* RemindersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RemindersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A855E5102A0A361200C90C24 /* RemindersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersUITests.swift; sourceTree = "<group>"; };
 		A855E5122A0A361200C90C24 /* RemindersUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A855E5222A0A88B700C90C24 /* ReminderList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderList+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A855E5242A0A88D400C90C24 /* ReminderList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderList+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A855E5262A0A893900C90C24 /* Reminder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A855E5282A0A894C00C90C24 /* Reminder+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A855E52A2A0A8A0700C90C24 /* ReminderPriority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderPriority.swift; sourceTree = "<group>"; };
+		A855E52C2A0A8D1500C90C24 /* Subtask+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Subtask+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A855E52E2A0A8D2A00C90C24 /* Subtask+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Subtask+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A855E5302A0A8E2500C90C24 /* Tag+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A855E5322A0A8E3400C90C24 /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A8698B632A0B0F3000259E3C /* ReminderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderListView.swift; sourceTree = "<group>"; };
+		A8698B652A0B132D00259E3C /* RemindersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersView.swift; sourceTree = "<group>"; };
+		A8698B672A0C5ED000259E3C /* HomeScreenViewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewView.swift; sourceTree = "<group>"; };
+		A8698B692A0C63AB00259E3C /* ButtonAddReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAddReminderView.swift; sourceTree = "<group>"; };
+		A8698B6B2A0C63BF00259E3C /* ButtonAddReminderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAddReminderListView.swift; sourceTree = "<group>"; };
+		A8698B6D2A0C7D5B00259E3C /* CreateReminderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReminderListView.swift; sourceTree = "<group>"; };
+		A887A4E42A1AB38F00C4BACB /* SharingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingView.swift; sourceTree = "<group>"; };
+		A887A4E62A1AF3F300C4BACB /* RenderedToPdfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderedToPdfView.swift; sourceTree = "<group>"; };
+		A88FCE472A10061B00881D79 /* SelectDueDateAndHourView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDueDateAndHourView.swift; sourceTree = "<group>"; };
+		A88FCE492A1015F100881D79 /* SelectTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTagView.swift; sourceTree = "<group>"; };
+		A88FCE4B2A10287B00881D79 /* FlagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagView.swift; sourceTree = "<group>"; };
+		A88FCE4D2A102CF600881D79 /* SelectPriorityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPriorityView.swift; sourceTree = "<group>"; };
+		A88FCE4F2A1065EF00881D79 /* SelectListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectListView.swift; sourceTree = "<group>"; };
+		A88FCE512A10970B00881D79 /* AddImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageView.swift; sourceTree = "<group>"; };
+		A89A013B2A0C980B00D284D1 /* ListColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListColorView.swift; sourceTree = "<group>"; };
+		A89A013D2A0D119900D284D1 /* ListTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTextFieldView.swift; sourceTree = "<group>"; };
+		A89A01412A0D3B5800D284D1 /* ButtonSaveTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSaveTemplateView.swift; sourceTree = "<group>"; };
+		A89A01432A0D3E0C00D284D1 /* ReminderRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderRowView.swift; sourceTree = "<group>"; };
+		A89E8D0B2A0EDCB8006CDCEF /* ReminderListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderListRowView.swift; sourceTree = "<group>"; };
+		A89E8D0D2A0EE228006CDCEF /* CreateListTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateListTitleView.swift; sourceTree = "<group>"; };
+		A89E8D0F2A0EE244006CDCEF /* SelectListColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectListColorView.swift; sourceTree = "<group>"; };
+		A89E8D112A0EE46D006CDCEF /* ReminderSortMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderSortMenuView.swift; sourceTree = "<group>"; };
+		A8BBE9DF2A0D9E9C00069FB1 /* CreateReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReminderView.swift; sourceTree = "<group>"; };
+		A8BBE9E12A0E6F4A00069FB1 /* CreateReminderDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReminderDetailsView.swift; sourceTree = "<group>"; };
+		A8D8AE3A2A12EB5200A58970 /* EditReminderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditReminderListView.swift; sourceTree = "<group>"; };
+		A8D8AE3C2A132B9F00A58970 /* Picture+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picture+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A8D8AE3D2A132B9F00A58970 /* Picture+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picture+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A8E1A3ED2A1A6289005263F0 /* ButtonCreateListFromTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCreateListFromTemplateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +203,11 @@
 			isa = PBXGroup;
 			children = (
 				A855E4F02A0A361000C90C24 /* RemindersApp.swift */,
-				A855E4F22A0A361000C90C24 /* ContentView.swift */,
-				A855E4F42A0A361200C90C24 /* Assets.xcassets */,
 				A855E4F92A0A361200C90C24 /* Persistence.swift */,
 				A855E4FB2A0A361200C90C24 /* Reminders.xcdatamodeld */,
+				A855E51F2A0A370000C90C24 /* Model */,
+				A8698B2B2A0AE1C500259E3C /* Views */,
+				A855E4F42A0A361200C90C24 /* Assets.xcassets */,
 				A855E4F62A0A361200C90C24 /* Preview Content */,
 			);
 			path = Reminders;
@@ -133,6 +238,81 @@
 			path = RemindersUITests;
 			sourceTree = "<group>";
 		};
+		A855E51F2A0A370000C90C24 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A855E5222A0A88B700C90C24 /* ReminderList+CoreDataClass.swift */,
+				A855E5242A0A88D400C90C24 /* ReminderList+CoreDataProperties.swift */,
+				A855E5262A0A893900C90C24 /* Reminder+CoreDataClass.swift */,
+				A855E5282A0A894C00C90C24 /* Reminder+CoreDataProperties.swift */,
+				A855E52A2A0A8A0700C90C24 /* ReminderPriority.swift */,
+				A855E52C2A0A8D1500C90C24 /* Subtask+CoreDataClass.swift */,
+				A855E52E2A0A8D2A00C90C24 /* Subtask+CoreDataProperties.swift */,
+				A855E5302A0A8E2500C90C24 /* Tag+CoreDataClass.swift */,
+				A855E5322A0A8E3400C90C24 /* Tag+CoreDataProperties.swift */,
+				A8D8AE3C2A132B9F00A58970 /* Picture+CoreDataClass.swift */,
+				A8D8AE3D2A132B9F00A58970 /* Picture+CoreDataProperties.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A8698B2B2A0AE1C500259E3C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A8698B672A0C5ED000259E3C /* HomeScreenViewView.swift */,
+				A824EF282A19144A0047A3E5 /* SearchView.swift */,
+				A824EF112A142B410047A3E5 /* TodayRemindersView.swift */,
+				A824EF132A142B610047A3E5 /* ScheduledRemindersView.swift */,
+				A824EF152A142B9C0047A3E5 /* AllRemindersView.swift */,
+				A824EF172A142BB60047A3E5 /* FlaggedRemindersView.swift */,
+				A824EF192A142BDA0047A3E5 /* CompletedRemindersView.swift */,
+				A8698B652A0B132D00259E3C /* RemindersView.swift */,
+				A8698B6D2A0C7D5B00259E3C /* CreateReminderListView.swift */,
+				A8BBE9DF2A0D9E9C00069FB1 /* CreateReminderView.swift */,
+				A8BBE9E12A0E6F4A00069FB1 /* CreateReminderDetailsView.swift */,
+				A8D8AE3A2A12EB5200A58970 /* EditReminderListView.swift */,
+				A83F83782A1173F6006543E2 /* EditReminderView.swift */,
+				A824EF262A186A020047A3E5 /* SaveTemplateView.swift */,
+				A89A01452A0D3F0300D284D1 /* SubViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A89A01452A0D3F0300D284D1 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				A824EF0F2A141B040047A3E5 /* SummaryView.swift */,
+				A824EF1B2A145F8C0047A3E5 /* CardView.swift */,
+				A8698B632A0B0F3000259E3C /* ReminderListView.swift */,
+				A89E8D0B2A0EDCB8006CDCEF /* ReminderListRowView.swift */,
+				A89A01432A0D3E0C00D284D1 /* ReminderRowView.swift */,
+				A824EF202A16F39D0047A3E5 /* SubtaskRowView.swift */,
+				A89E8D112A0EE46D006CDCEF /* ReminderSortMenuView.swift */,
+				A8698B6B2A0C63BF00259E3C /* ButtonAddReminderListView.swift */,
+				A8698B692A0C63AB00259E3C /* ButtonAddReminderView.swift */,
+				A89A01412A0D3B5800D284D1 /* ButtonSaveTemplateView.swift */,
+				A89E8D0D2A0EE228006CDCEF /* CreateListTitleView.swift */,
+				A89A013D2A0D119900D284D1 /* ListTextFieldView.swift */,
+				A89E8D0F2A0EE244006CDCEF /* SelectListColorView.swift */,
+				A89A013B2A0C980B00D284D1 /* ListColorView.swift */,
+				A824EF2A2A1959890047A3E5 /* SelectTemplateView.swift */,
+				A8E1A3ED2A1A6289005263F0 /* ButtonCreateListFromTemplateView.swift */,
+				A88FCE472A10061B00881D79 /* SelectDueDateAndHourView.swift */,
+				A88FCE492A1015F100881D79 /* SelectTagView.swift */,
+				A88FCE4B2A10287B00881D79 /* FlagView.swift */,
+				A88FCE4D2A102CF600881D79 /* SelectPriorityView.swift */,
+				A88FCE4F2A1065EF00881D79 /* SelectListView.swift */,
+				A824EF222A1707120047A3E5 /* AddSubtaskView.swift */,
+				A824EF242A17080B0047A3E5 /* EditSubtaskView.swift */,
+				A824EF0D2A13AD330047A3E5 /* PhotoPickerView.swift */,
+				A88FCE512A10970B00881D79 /* AddImageView.swift */,
+				A824EF0B2A139CB10047A3E5 /* EditImageView.swift */,
+				A887A4E42A1AB38F00C4BACB /* SharingView.swift */,
+				A887A4E62A1AF3F300C4BACB /* RenderedToPdfView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +323,7 @@
 				A855E4E92A0A361000C90C24 /* Sources */,
 				A855E4EA2A0A361000C90C24 /* Frameworks */,
 				A855E4EB2A0A361000C90C24 /* Resources */,
+				A824EF1D2A166B7D0047A3E5 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -258,15 +439,90 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A824EF1D2A166B7D0047A3E5 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A855E4E92A0A361000C90C24 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A855E5332A0A8E3400C90C24 /* Tag+CoreDataProperties.swift in Sources */,
+				A824EF182A142BB60047A3E5 /* FlaggedRemindersView.swift in Sources */,
+				A89A01442A0D3E0C00D284D1 /* ReminderRowView.swift in Sources */,
+				A89E8D102A0EE244006CDCEF /* SelectListColorView.swift in Sources */,
+				A824EF0E2A13AD330047A3E5 /* PhotoPickerView.swift in Sources */,
+				A855E5232A0A88B700C90C24 /* ReminderList+CoreDataClass.swift in Sources */,
+				A8698B662A0B132D00259E3C /* RemindersView.swift in Sources */,
+				A824EF162A142B9C0047A3E5 /* AllRemindersView.swift in Sources */,
+				A824EF2B2A1959890047A3E5 /* SelectTemplateView.swift in Sources */,
+				A824EF292A19144A0047A3E5 /* SearchView.swift in Sources */,
+				A8698B642A0B0F3000259E3C /* ReminderListView.swift in Sources */,
+				A887A4E72A1AF3F300C4BACB /* RenderedToPdfView.swift in Sources */,
+				A89A013C2A0C980B00D284D1 /* ListColorView.swift in Sources */,
+				A89E8D122A0EE46D006CDCEF /* ReminderSortMenuView.swift in Sources */,
 				A855E4FA2A0A361200C90C24 /* Persistence.swift in Sources */,
-				A855E4F32A0A361000C90C24 /* ContentView.swift in Sources */,
+				A88FCE4C2A10287B00881D79 /* FlagView.swift in Sources */,
+				A824EF232A1707120047A3E5 /* AddSubtaskView.swift in Sources */,
+				A8698B682A0C5ED000259E3C /* HomeScreenViewView.swift in Sources */,
 				A855E4F12A0A361000C90C24 /* RemindersApp.swift in Sources */,
+				A824EF1C2A145F8C0047A3E5 /* CardView.swift in Sources */,
+				A855E5272A0A893900C90C24 /* Reminder+CoreDataClass.swift in Sources */,
+				A8BBE9E02A0D9E9C00069FB1 /* CreateReminderView.swift in Sources */,
+				A8698B6E2A0C7D5B00259E3C /* CreateReminderListView.swift in Sources */,
+				A8E1A3EE2A1A6289005263F0 /* ButtonCreateListFromTemplateView.swift in Sources */,
+				A887A4E52A1AB38F00C4BACB /* SharingView.swift in Sources */,
+				A8D8AE3F2A132B9F00A58970 /* Picture+CoreDataProperties.swift in Sources */,
+				A89A01422A0D3B5800D284D1 /* ButtonSaveTemplateView.swift in Sources */,
+				A824EF142A142B610047A3E5 /* ScheduledRemindersView.swift in Sources */,
+				A88FCE4E2A102CF600881D79 /* SelectPriorityView.swift in Sources */,
+				A88FCE482A10061B00881D79 /* SelectDueDateAndHourView.swift in Sources */,
+				A88FCE502A1065EF00881D79 /* SelectListView.swift in Sources */,
+				A8BBE9E22A0E6F4A00069FB1 /* CreateReminderDetailsView.swift in Sources */,
+				A824EF272A186A020047A3E5 /* SaveTemplateView.swift in Sources */,
+				A89A013E2A0D119900D284D1 /* ListTextFieldView.swift in Sources */,
+				A89E8D0E2A0EE228006CDCEF /* CreateListTitleView.swift in Sources */,
+				A824EF122A142B410047A3E5 /* TodayRemindersView.swift in Sources */,
 				A855E4FD2A0A361200C90C24 /* Reminders.xcdatamodeld in Sources */,
+				A89E8D0C2A0EDCB8006CDCEF /* ReminderListRowView.swift in Sources */,
+				A83F83792A1173F6006543E2 /* EditReminderView.swift in Sources */,
+				A824EF0C2A139CB10047A3E5 /* EditImageView.swift in Sources */,
+				A855E5252A0A88D400C90C24 /* ReminderList+CoreDataProperties.swift in Sources */,
+				A8698B6A2A0C63AB00259E3C /* ButtonAddReminderView.swift in Sources */,
+				A855E52F2A0A8D2A00C90C24 /* Subtask+CoreDataProperties.swift in Sources */,
+				A824EF212A16F39D0047A3E5 /* SubtaskRowView.swift in Sources */,
+				A8D8AE3B2A12EB5200A58970 /* EditReminderListView.swift in Sources */,
+				A855E5292A0A894C00C90C24 /* Reminder+CoreDataProperties.swift in Sources */,
+				A824EF102A141B040047A3E5 /* SummaryView.swift in Sources */,
+				A8698B6C2A0C63BF00259E3C /* ButtonAddReminderListView.swift in Sources */,
+				A824EF252A17080B0047A3E5 /* EditSubtaskView.swift in Sources */,
+				A855E52B2A0A8A0700C90C24 /* ReminderPriority.swift in Sources */,
+				A88FCE522A10970B00881D79 /* AddImageView.swift in Sources */,
+				A88FCE4A2A1015F100881D79 /* SelectTagView.swift in Sources */,
+				A824EF1A2A142BDA0047A3E5 /* CompletedRemindersView.swift in Sources */,
+				A855E5312A0A8E2500C90C24 /* Tag+CoreDataClass.swift in Sources */,
+				A855E52D2A0A8D1500C90C24 /* Subtask+CoreDataClass.swift in Sources */,
+				A8D8AE3E2A132B9F00A58970 /* Picture+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
