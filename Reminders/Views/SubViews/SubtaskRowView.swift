@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct SubtaskRowView: View {
-    @Environment(\.managedObjectContext) var viewContext
-    @State private var title: String
     let reminder: Reminder
     let subtask: Subtask
+    @StateObject var viewModel: ReminderRowViewModel
 
     init(reminder: Reminder, subtask: Subtask) {
-        self._title = .init(wrappedValue: subtask.title)
         self.reminder = reminder
         self.subtask = subtask
+        self._viewModel = .init(wrappedValue: ReminderRowViewModel(reminder: reminder, subtask: subtask))
     }
 
     var body: some View {
@@ -27,21 +26,20 @@ struct SubtaskRowView: View {
                     .foregroundColor(Color(reminder.list.color))
                     .frame(width: 20, height: 20)
 
-                TextField("", text: $title)
+                TextField("", text: Binding<String>(
+                    get: {viewModel.subtaskTitle ?? subtask.title},
+                    set: {viewModel.subtaskTitle = $0}))
                     .padding(.leading, 5)
             }
         }
         .padding(.leading, 28)
-        .onChange(of: title, perform: { newValue in
-            Subtask.update(subtask: subtask,
-                           title: newValue,
-                           context: viewContext)
+        .onChange(of: viewModel.subtaskTitle ?? subtask.title, perform: { newValue in
+            viewModel.updateSubtask(title: newValue)
         })
         .swipeActions(edge: .trailing, allowsFullSwipe: false) {
             Button {
                 withAnimation {
-                    viewContext.delete(subtask)
-                    PersistenceController.save(viewContext)
+                    viewModel.delete(subtask)
                 }
             } label: {
                 Text("Delete")
@@ -52,9 +50,9 @@ struct SubtaskRowView: View {
 }
 
 struct SubtaskRowView_Previews: PreviewProvider {
-    static var reminderList = PersistenceController.reminderListForPreview()
-    static var reminder = PersistenceController.reminderForPreview(reminderList: reminderList)
-    static var subtask = PersistenceController.subtaskForPreview(reminder: reminder)
+    static var reminderList = CoreDataManager.reminderListForPreview()
+    static var reminder = CoreDataManager.reminderForPreview(reminderList: reminderList)
+    static var subtask = CoreDataManager.subtaskForPreview(reminder: reminder)
     static var previews: some View {
         VStack(alignment: .leading) {
             SubtaskRowView(reminder: reminder, subtask: subtask)

@@ -8,13 +8,10 @@
 import SwiftUI
 
 struct ReminderRowView: View {
-    @Environment(\.managedObjectContext) var viewContext
-    @State private var isCompleted: Bool
-    @State private var title: String
-    @State private var notes: String
     @State private var isShowingDetails = false
     let reminderList: ReminderList
     let reminder: Reminder
+    @StateObject var viewModel: ReminderRowViewModel
 
     var gridColumns = Array(repeating: GridItem(.flexible()), count: 6)
 
@@ -22,30 +19,17 @@ struct ReminderRowView: View {
       ReminderPriority(rawValue: reminder.priority)?.shortDisplay ?? ""
     }
 
-    var remindersFetchRequest: FetchRequest<Reminder>
-
-    var picturesFetchRequest: FetchRequest<Picture>
-    var pictures: FetchedResults<Picture> {
-        picturesFetchRequest.wrappedValue
-    }
-
-    init(reminderList: ReminderList, reminder: Reminder, remindersFetchRequest: FetchRequest<Reminder>) {
-        self._isCompleted = .init(wrappedValue: reminder.isCompleted)
-        self._title = .init(wrappedValue: reminder.title)
-        self._notes = .init(wrappedValue: reminder.notes)
+    init(reminderList: ReminderList, reminder: Reminder) {
         self.reminderList = reminderList
         self.reminder = reminder
-        self.remindersFetchRequest = remindersFetchRequest
-        self.picturesFetchRequest = Picture.fetchPictures(in: reminder)
+        self._viewModel = .init(wrappedValue: ReminderRowViewModel(reminder: reminder))
     }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             HStack {
                 Button {
-                    isCompleted.toggle()
-                    reminder.isCompleted = isCompleted
-                    PersistenceController.save(viewContext)
+                    viewModel.toggleCompleted()
                 } label: {
                     Circle()
                         .padding(4)
@@ -53,12 +37,14 @@ struct ReminderRowView: View {
                             Circle()
                                 .stroke(Color(reminderList.color), lineWidth: 2)
                         )
-                        .foregroundColor(isCompleted ? Color(reminderList.color) : .clear)
+                        .foregroundColor(reminder.isCompleted ? Color(reminderList.color) : .clear)
                         .frame(width: 20, height: 20)
                 }
 
                 if !priority.isEmpty { Text(priority) }
-                TextField("", text: $title)
+                TextField("", text: Binding<String>(
+                    get: {viewModel.reminderTitle ?? reminder.title},
+                    set: {viewModel.reminderTitle = $0}))
                 Spacer()
                 if reminder.isFlagged {
                     Image(systemName: "flag.fill")
@@ -66,15 +52,15 @@ struct ReminderRowView: View {
                 }
             }
             .buttonStyle(.plain)
-            .onChange(of: title) { newValue in
-                Reminder.update(reminder: reminder,
-                                title: newValue,
-                                context: viewContext)
+            .onChange(of: viewModel.reminderTitle ?? reminder.title) { newValue in
+                viewModel.updateReminder(title: newValue)
             }
 
             VStack(alignment: .leading) {
                 VStack(alignment: .leading, spacing: 3) {
-                    TextField("Add Note", text: $notes, axis: .vertical)
+                    TextField("Add Note", text: Binding<String>(
+                        get: {viewModel.notes ?? reminder.notes},
+                        set: {viewModel.notes = $0}), axis: .vertical)
 
                     HStack {
                         if let dueDate = reminder.dueDate {
@@ -88,14 +74,12 @@ struct ReminderRowView: View {
                 }
                 .font(.subheadline)
                 .foregroundColor(.secondary)
-                .onChange(of: notes) { newValue in
-                    Reminder.update(reminder: reminder,
-                                    notes: newValue,
-                                    context: viewContext)
+                .onChange(of: viewModel.notes ?? reminder.notes) { newValue in
+                    viewModel.updateReminder(notes: newValue)
                 }
 
                 LazyVGrid(columns: gridColumns) {
-                    ForEach(pictures, id: \.self) { picture in
+                    ForEach(viewModel.getPictures(), id: \.self) { picture in
                         if let data = picture.data {
                             if let uiImage = UIImage(data: data) {
                                 GeometryReader { _ in
@@ -115,8 +99,7 @@ struct ReminderRowView: View {
         .swipeActions(edge: .trailing, allowsFullSwipe: false) {
             Button {
                 withAnimation {
-                    viewContext.delete(reminder)
-                    PersistenceController.save(viewContext)
+                    viewModel.delete(reminder)
                 }
             } label: {
                 Text("Delete")
@@ -124,8 +107,7 @@ struct ReminderRowView: View {
             .tint(.red)
 
             Button {
-                reminder.isFlagged.toggle()
-                PersistenceController.save(viewContext)
+                viewModel.toggleFlagged()
             } label: {
                 if reminder.isFlagged {
                     Text("Unflag")
@@ -163,18 +145,15 @@ struct ReminderRowView: View {
 }
 
 struct ReminderRowView_Previews: PreviewProvider {
-    static var fetchAllReminders: FetchRequest<Reminder> = Reminder.fetchReminders(predicate: .all)
     static var previews: some View {
-        let reminderList = PersistenceController.reminderListForPreview()
-        let reminder = PersistenceController.reminderForPreview(reminderList: reminderList)
+        let reminderList = CoreDataManager.reminderListForPreview()
+        let reminder = CoreDataManager.reminderForPreview(reminderList: reminderList)
         // swiftlint:disable:next redundant_discardable_let
-        let _ = PersistenceController.pictureForPreview(reminder: reminder)
+        let _ = CoreDataManager.pictureForPreview(reminder: reminder)
         return NavigationStack {
             List {
                 ReminderRowView(reminderList: reminderList,
-                                reminder: reminder,
-                                remindersFetchRequest: fetchAllReminders)
-                    .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+                                reminder: reminder)
             }
             .listStyle(.plain)
         }

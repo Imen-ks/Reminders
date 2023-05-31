@@ -8,27 +8,21 @@
 import SwiftUI
 
 struct ReminderListView: View {
-    @Environment(\.managedObjectContext) var viewContext
-    @Binding var sortDescriptor: SortDescriptor
     @State private var isAddingReminder = false
     @State private var isAddingReminderList = false
     @State private var isEditingReminderList = false
     @State private var isTemplate = false
-
-    var fetchRequest: FetchRequest<ReminderList> = ReminderList.fetchReminderLists()
-    var reminderLists: FetchedResults<ReminderList> {
-        fetchRequest.wrappedValue
-    }
+    @StateObject var viewModel = DisplayReminderListViewModel()
 
     var body: some View {
         Section {
             List {
                 Section(header: Text("My lists").font(.title2).bold().textCase(nil).foregroundColor(.black)) {
-                    ForEach(reminderLists, id: \.self) { reminderList in
+                    ForEach(viewModel.reminderLists, id: \.self) { reminderList in
                         NavigationLink {
                             RemindersView(
                                 reminderList: reminderList,
-                                sortDescriptor: $sortDescriptor,
+                                sortDescriptor: $viewModel.sortDescriptor,
                                 isTemplate: $isTemplate)
                         } label: {
                             ReminderListRowView(
@@ -38,21 +32,11 @@ struct ReminderListView: View {
                         }
                     }
                     .onDelete { offsets in
-                        withAnimation {
-                            offsets.map { reminderLists[$0] }.forEach(viewContext.delete)
-                            PersistenceController.save(viewContext)
-                        }
+                        viewModel.delete(at: offsets)
                     }
                     .onMove { source, destination in
                         withAnimation {
-                            var reminderLists: [ReminderList] = self.reminderLists.map { $0 }
-                            reminderLists.move(fromOffsets: source, toOffset: destination )
-                            for reverseIndex in stride(from: reminderLists.count - 1,
-                                                       through: 0,
-                                                       by: -1) {
-                                reminderLists[reverseIndex].order = Int16(reverseIndex)
-                            }
-                            PersistenceController.save(viewContext)
+                            viewModel.move(from: source, to: destination)
                         }
                     }
                     .listRowInsets(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 15))
@@ -68,8 +52,8 @@ struct ReminderListView: View {
                         ButtonAddReminderView(
                             isAddingReminder: $isAddingReminder,
                             color: .accentColor,
-                            reminderList: reminderLists.first ?? ReminderList())
-                        .disabled(reminderLists.isEmpty)
+                            reminderList: viewModel.reminderLists.first ?? ReminderList())
+                        .disabled(viewModel.reminderLists.isEmpty)
                         Spacer()
                         ButtonAddReminderListView(isAddingReminderList: $isAddingReminderList)
                     }
@@ -80,11 +64,10 @@ struct ReminderListView: View {
 }
 
 struct ReminderListView_Previews: PreviewProvider {
-    @State static var sortDescriptor = SortDescriptor.dateCreated
     static var previews: some View {
         NavigationStack {
-            ReminderListView(sortDescriptor: $sortDescriptor)
-                .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+            ReminderListView(viewModel: DisplayReminderListViewModel(
+                dataManager: CoreDataManager.preview))
         }
     }
 }

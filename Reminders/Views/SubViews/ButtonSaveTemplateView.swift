@@ -27,7 +27,7 @@ struct ButtonSaveTemplateView: View {
 }
 
 struct ButtonSaveTemplateView_Previews: PreviewProvider {
-    static var reminderList = PersistenceController.reminderListForPreview()
+    static var reminderList = CoreDataManager.reminderListForPreview()
     static var previews: some View {
         ButtonSaveTemplateView(isSavingTemplate: .constant(false), reminderList: reminderList)
     }

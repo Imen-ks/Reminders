@@ -22,28 +22,7 @@ struct SummaryView: View {
     @State var flaggedIsTapped = false
     @State var completedIsTapped = false
 
-    var fetchTodayReminders: FetchRequest<Reminder> = Reminder.fetchReminders(predicate: .today)
-    var todayRemindersCount: Int {
-        return fetchTodayReminders.wrappedValue.count
-    }
-    var fetchScheduledReminders: FetchRequest<Reminder> = Reminder.fetchReminders(predicate: .scheduled)
-    var scheduledRemindersCount: Int {
-        return fetchScheduledReminders.wrappedValue.count
-    }
-    var fetchAllReminders: FetchRequest<Reminder> = Reminder.fetchReminders(predicate: .all)
-    var allRemindersCount: Int {
-        return fetchAllReminders.wrappedValue.count
-    }
-    var fetchFlaggedReminders: FetchRequest<Reminder> = Reminder.fetchReminders(predicate: .flagged)
-    var flaggedRemindersCount: Int {
-        return fetchFlaggedReminders.wrappedValue.count
-    }
-    var fetchCompletedReminders: FetchRequest<Reminder> = Reminder.fetchReminders(predicate: .completed)
-    var completedRemindersCount: Int {
-        return fetchCompletedReminders.wrappedValue.count
-    }
-
-    var subtasksFetchRequest: FetchRequest<Subtask> = Subtask.fetchSubtasks()
+    @StateObject var viewModel: SummaryViewModel
 
     var gridColumns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 2)
 
@@ -51,53 +30,43 @@ struct SummaryView: View {
         LazyVGrid(columns: gridColumns, spacing: 15) {
             CardView(name: "Today",
                      icon: "clock.badge.fill",
-                     count: todayRemindersCount,
+                     count: viewModel.todayReminders.count,
                      color: .blue,
                      isTapped: $todayIsTapped)
             .navigationDestination(isPresented: $todayIsTapped, destination: {
-                TodayRemindersView(
-                    fetchTodayReminders: fetchTodayReminders,
-                    subtasksFetchRequest: subtasksFetchRequest)
+                TodayRemindersView(viewModel: viewModel)
             })
             CardView(name: "Scheduled",
                      icon: "calendar",
-                     count: scheduledRemindersCount,
+                     count: viewModel.scheduledReminders.count,
                      color: .red,
                      isTapped: $scheduledIsTapped)
             .navigationDestination(isPresented: $scheduledIsTapped, destination: {
-                ScheduledRemindersView(
-                    fetchScheduledReminders: fetchScheduledReminders,
-                    subtasksFetchRequest: subtasksFetchRequest)
+                ScheduledRemindersView(viewModel: viewModel)
             })
             CardView(name: "All",
                      icon: "tray.fill",
-                     count: allRemindersCount,
+                     count: viewModel.allReminders.count,
                      color: .black,
                      isTapped: $allIsTapped)
             .navigationDestination(isPresented: $allIsTapped, destination: {
-                AllRemindersView(
-                    fetchAllReminders: fetchAllReminders,
-                    subtasksFetchRequest: subtasksFetchRequest)
+                AllRemindersView(viewModel: viewModel)
             })
             CardView(name: "Flagged",
                      icon: "flag.fill",
-                     count: flaggedRemindersCount,
+                     count: viewModel.flaggedReminders.count,
                      color: .orange,
                      isTapped: $flaggedIsTapped)
             .navigationDestination(isPresented: $flaggedIsTapped, destination: {
-                FlaggedRemindersView(
-                    fetchFlaggedReminders: fetchFlaggedReminders,
-                    subtasksFetchRequest: subtasksFetchRequest)
+                FlaggedRemindersView(viewModel: viewModel)
             })
             CardView(name: "Completed",
                      icon: "checkmark",
-                     count: completedRemindersCount,
+                     count: viewModel.completedReminders.count,
                      color: .gray,
                      isTapped: $completedIsTapped)
             .navigationDestination(isPresented: $completedIsTapped, destination: {
-                CompletedRemindersView(
-                    fetchCompletedReminders: fetchCompletedReminders,
-                    subtasksFetchRequest: subtasksFetchRequest)
+                CompletedRemindersView(viewModel: viewModel)
             })
         }
         .padding()
@@ -107,8 +76,7 @@ struct SummaryView: View {
 struct SummaryView_Previews: PreviewProvider {
     static var previews: some View {
         Section {
-            SummaryView()
-                .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+            SummaryView(viewModel: SummaryViewModel(dataManager: .preview))
         }
         .background(Color(UIColor.tertiarySystemFill))
     }

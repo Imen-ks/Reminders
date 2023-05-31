@@ -9,14 +9,11 @@ import SwiftUI
 
 struct SelectListView: View {
     @Binding var reminderList: ReminderList
-    var fetchRequest: FetchRequest<ReminderList> = ReminderList.fetchReminderLists()
-    var reminderLists: FetchedResults<ReminderList> {
-        fetchRequest.wrappedValue
-    }
+    @StateObject var viewModel = DisplayReminderListViewModel()
 
     var body: some View {
         List {
-            ForEach(reminderLists, id: \.self) { reminderList in
+            ForEach(viewModel.reminderLists, id: \.self) { reminderList in
                 Button {
                     self.reminderList = reminderList
                 } label: {
@@ -44,9 +41,8 @@ struct SelectListView: View {
 }
 
 struct SelectListView_Previews: PreviewProvider {
-    @State static var reminderList = PersistenceController.reminderListForPreview()
+    @State static var reminderList = CoreDataManager.reminderListForPreview()
     static var previews: some View {
         SelectListView(reminderList: $reminderList)
-            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

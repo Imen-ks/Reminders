@@ -8,24 +8,14 @@
 import SwiftUI
 
 struct TodayRemindersView: View {
-    var fetchTodayReminders: FetchRequest<Reminder>
-    var todayReminders: [Reminder] {
-        return Array(fetchTodayReminders.wrappedValue)
-            .sorted { $0.dueDate ?? $0.dateCreated < $1.dueDate ?? $1.dateCreated }
-    }
-
-    var subtasksFetchRequest: FetchRequest<Subtask>
-    var subtasks: FetchedResults<Subtask> {
-        subtasksFetchRequest.wrappedValue
-    }
+    @StateObject var viewModel: SummaryViewModel
 
     var body: some View {
         List {
-            ForEach(todayReminders, id: \.self) { reminder in
+            ForEach(viewModel.todayReminders, id: \.self) { reminder in
                 ReminderRowView(reminderList: reminder.list,
-                                reminder: reminder,
-                                remindersFetchRequest: fetchTodayReminders)
-                ForEach(subtasks, id: \.self) { subtask in
+                                reminder: reminder)
+                ForEach(viewModel.subtasks, id: \.self) { subtask in
                     if subtask.reminder == reminder {
                         SubtaskRowView(reminder: reminder, subtask: subtask)
                             .moveDisabled(true)
@@ -40,13 +30,9 @@ struct TodayRemindersView: View {
 }
 
 struct TodayRemindersView_Previews: PreviewProvider {
-    static var fetchTodayReminders: FetchRequest<Reminder> = Reminder.fetchReminders(predicate: .today)
-    static var subtasksFetchRequest: FetchRequest<Subtask> = Subtask.fetchSubtasks()
     static var previews: some View {
         return NavigationStack {
-            TodayRemindersView(fetchTodayReminders: fetchTodayReminders,
-                               subtasksFetchRequest: subtasksFetchRequest)
-                .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+            TodayRemindersView(viewModel: SummaryViewModel(dataManager: .preview))
         }
     }
 }

@@ -8,47 +8,34 @@
 import SwiftUI
 
 struct CreateReminderView: View {
-    @Environment(\.managedObjectContext) var viewContext
-    @State private var title = ""
-    @State private var notes = ""
-    @State private var dueDate: Date?
-    @State private var dueHour: Date?
-    @State private var tags = ""
-    @State private var isFlagging = false
-    @State private var priority = ReminderPriority.none
     let reminderList: ReminderList
     @Binding var isAddingReminder: Bool
-    @State private var selectedList: ReminderList
-    @State private var subtasks: [String] = []
-    @State private var pictures: [(id: UUID, data: Data)] = []
+    @StateObject var viewModel: CreateReminderViewModel
 
     init(reminderList: ReminderList, isAddingReminder: Binding<Bool>) {
         self.reminderList = reminderList
         self._isAddingReminder = isAddingReminder
-        self._selectedList = .init(wrappedValue: reminderList)
+        self._viewModel = .init(wrappedValue: CreateReminderViewModel(
+            reminderList: reminderList))
     }
 
     var body: some View {
         Form {
             Section {
-                TextField("Title", text: $title)
-                TextField("Notes", text: $notes, axis: .vertical)
+                TextField("Title", text: $viewModel.title)
+                TextField("Notes", text: $viewModel.notes, axis: .vertical)
                     .frame(height: 100, alignment: .top)
             }
 
             Section {
                 NavigationLink {
-                    CreateReminderDetailsView(title: $title,
-                                              notes: $notes,
-                                              dueDate: $dueDate,
-                                              dueHour: $dueHour,
-                                              tags: $tags,
-                                              isFlagging: $isFlagging,
-                                              priority: $priority,
-                                              reminderList: selectedList,
-                                              isAddingReminder: $isAddingReminder,
-                                              subtasks: $subtasks,
-                                              pictures: $pictures)
+                    CreateReminderDetailsView(
+                        reminderList: viewModel.selectedList,
+                        isAddingReminder: $isAddingReminder,
+                        viewModel: viewModel
+                    ) {
+                        viewModel.addReminder()
+                    }
                 } label: {
                     Text("Details")
                 }
@@ -56,7 +43,7 @@ struct CreateReminderView: View {
 
             Section {
                 NavigationLink {
-                    SelectListView(reminderList: $selectedList)
+                    SelectListView(reminderList: $viewModel.selectedList)
                 } label: {
                     HStack {
                         Text("List")
@@ -64,8 +51,8 @@ struct CreateReminderView: View {
                         HStack {
                             Circle()
                                 .frame(width: 8)
-                                .foregroundColor(Color(selectedList.color))
-                            Text(selectedList.title)
+                                .foregroundColor(Color(viewModel.selectedList.color))
+                            Text(viewModel.selectedList.title)
                                 .foregroundColor(.secondary)
                         }
                     }
@@ -83,21 +70,12 @@ struct CreateReminderView: View {
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    Reminder.create(title: title,
-                                    notes: notes,
-                                    dueDate: dueDate,
-                                    dueHour: dueHour,
-                                    priority: priority.rawValue,
-                                    isFlagged: isFlagging,
-                                    list: selectedList,
-                                    subtasks: subtasks,
-                                    pictures: pictures,
-                                    context: viewContext)
+                    viewModel.addReminder()
                     isAddingReminder.toggle()
                 } label: {
                     Text("Add")
                 }
-                .disabled(title.isEmpty)
+                .disabled(viewModel.title.isEmpty)
             }
         }
     }
@@ -105,10 +83,10 @@ struct CreateReminderView: View {
 
 struct CreateReminderView_Previews: PreviewProvider {
     static var previews: some View {
-        let reminderList = PersistenceController.reminderListForPreview()
+        let reminderList = CoreDataManager.reminderListForPreview()
         return NavigationStack {
-            CreateReminderView(reminderList: reminderList, isAddingReminder: .constant(false))
-                .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+            CreateReminderView(reminderList: reminderList,
+                               isAddingReminder: .constant(false))
         }
     }
 }

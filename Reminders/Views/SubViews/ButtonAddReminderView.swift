@@ -33,7 +33,7 @@ struct ButtonAddReminderView: View {
 
 struct ButtonAddReminderView_Previews: PreviewProvider {
     static var previews: some View {
-        let reminderList = PersistenceController.reminderListForPreview()
+        let reminderList = CoreDataManager.reminderListForPreview()
         ButtonAddReminderView(isAddingReminder: .constant(false), color: .accentColor, reminderList: reminderList)
     }
 }

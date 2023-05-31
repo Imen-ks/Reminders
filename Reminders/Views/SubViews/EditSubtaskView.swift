@@ -14,22 +14,7 @@ struct EditSubtaskView: View {
     @Binding var updated: [Subtask]
     @Binding var removed: [Subtask]
     @Binding var added: [String]
-    var subtasksFetchRequest: FetchRequest<Subtask>
-    var storedSubtasks: FetchedResults<Subtask> {
-        subtasksFetchRequest.wrappedValue
-    }
-
-    init(reminder: Reminder, subtasks: Binding<[String]>,
-         removedSubtasks: Binding<[Subtask]>, updated: Binding<[Subtask]>,
-         removed: Binding<[Subtask]>, added: Binding<[String]>) {
-        self.reminder = reminder
-        self._subtasks = subtasks
-        self._removedSubtasks = removedSubtasks
-        self.subtasksFetchRequest = Subtask.fetchSubtasks(in: reminder)
-        self._updated = updated
-        self._removed = removed
-        self._added = added
-    }
+    @Binding var storedSubtasks: [Subtask]
 
     var body: some View {
         List {
@@ -120,14 +105,18 @@ struct EditSubtaskView_Previews: PreviewProvider {
     @State static var updated: [Subtask] = []
     @State static var removed: [Subtask] = []
     @State static var added: [String] = []
+    @State static var storedSubtasks: [Subtask] = []
     static var previews: some View {
         return NavigationStack {
-            let reminderList = PersistenceController.reminderListForPreview()
-            let reminder = PersistenceController.reminderForPreview(reminderList: reminderList)
-            EditSubtaskView(reminder: reminder, subtasks: $subtasks,
-                            removedSubtasks: $removedSubtasks, updated: $updated,
-                            removed: $removed, added: $added)
-                .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+            let reminderList = CoreDataManager.reminderListForPreview()
+            let reminder = CoreDataManager.reminderForPreview(reminderList: reminderList)
+            EditSubtaskView(reminder: reminder,
+                            subtasks: $subtasks,
+                            removedSubtasks: $removedSubtasks,
+                            updated: $updated,
+                            removed: $removed,
+                            added: $added,
+                            storedSubtasks: $storedSubtasks)
         }
     }
 }

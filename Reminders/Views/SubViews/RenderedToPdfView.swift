@@ -9,8 +9,8 @@ import SwiftUI
 
 struct RenderedToPdfView: View {
     let reminderList: ReminderList
-    var reminders: FetchedResults<Reminder>
-    var subtasks: FetchedResults<Subtask>
+    var reminders: [Reminder]
+    var subtasks: [Subtask]
 
     var gridColumns = Array(repeating: GridItem(.flexible()), count: 6)
 

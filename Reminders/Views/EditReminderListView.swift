@@ -8,27 +8,24 @@
 import SwiftUI
 
 struct EditReminderListView: View {
-    @Environment(\.managedObjectContext) var viewContext
-    @State private var listTitle: String
-    @State private var selectedColor: Color
     @Binding var isEditingReminderList: Bool
     let reminderList: ReminderList
+    @StateObject var viewModel: EditReminderListViewModel
 
     init(isEditingReminderList: Binding<Bool>, reminderList: ReminderList) {
-        self._listTitle = .init(wrappedValue: reminderList.title)
-        self._selectedColor = .init(wrappedValue: Color(reminderList.color))
         self._isEditingReminderList = isEditingReminderList
         self.reminderList = reminderList
+        self._viewModel = .init(wrappedValue: EditReminderListViewModel(reminderList: reminderList))
     }
 
     var body: some View {
         Form {
             Section {
-                CreateListTitleView(listTitle: $listTitle, selectedColor: $selectedColor)
+                CreateListTitleView(listTitle: $viewModel.listTitle, selectedColor: $viewModel.selectedColor)
             }
 
             Section {
-                SelectListColorView(selectedColor: $selectedColor)
+                SelectListColorView(selectedColor: $viewModel.selectedColor)
             }
         }
         .toolbar {
@@ -41,26 +38,22 @@ struct EditReminderListView: View {
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    ReminderList.update(reminderList: reminderList,
-                                        title: listTitle,
-                                        color: UIColor(selectedColor),
-                                        context: viewContext)
+                    viewModel.updateReminderList(reminderList: reminderList)
                     isEditingReminderList.toggle()
                 } label: {
                     Text("Done")
                 }
-                .disabled(listTitle.isEmpty)
+                .disabled(viewModel.listTitle.isEmpty)
             }
         }
     }
 }
 
 struct EditReminderListView_Previews: PreviewProvider {
-    static var reminderList = PersistenceController.reminderListForPreview()
+    static var reminderList = CoreDataManager.reminderListForPreview()
     static var previews: some View {
         NavigationStack {
             EditReminderListView(isEditingReminderList: .constant(true), reminderList: reminderList)
-                .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
         }
     }
 }

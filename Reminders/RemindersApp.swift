@@ -9,12 +9,12 @@ import SwiftUI
 
 @main
 struct RemindersApp: App {
-    let persistenceController = PersistenceController.shared
+    let dataManager = CoreDataManager.shared.persistenceController
 
     var body: some Scene {
         WindowGroup {
             HomeScreenView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environment(\.managedObjectContext, dataManager.container.viewContext)
         }
     }
 }

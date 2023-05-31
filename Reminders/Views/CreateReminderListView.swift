@@ -13,11 +13,9 @@ enum Selection: String, CaseIterable {
 }
 
 struct CreateReminderListView: View {
-    @Environment(\.managedObjectContext) var viewContext
     @State private var selection: Selection = .list
-    @State private var listTitle = ""
-    @State private var selectedColor: Color = .blue
     @Binding var isAddingReminderList: Bool
+    @StateObject var viewModel = CreateReminderListViewModel()
 
     var body: some View {
         VStack(spacing: 0) {
@@ -33,11 +31,11 @@ struct CreateReminderListView: View {
             if selection == .list {
                 Form {
                     Section {
-                        CreateListTitleView(listTitle: $listTitle, selectedColor: $selectedColor)
+                        CreateListTitleView(listTitle: $viewModel.listTitle, selectedColor: $viewModel.selectedColor)
                     }
 
                     Section {
-                        SelectListColorView(selectedColor: $selectedColor)
+                        SelectListColorView(selectedColor: $viewModel.selectedColor)
                     }
                 }
             } else if selection == .template {
@@ -55,14 +53,12 @@ struct CreateReminderListView: View {
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    ReminderList.create(title: listTitle,
-                                        color: UIColor(selectedColor),
-                                        context: viewContext)
+                    viewModel.addReminderList()
                     isAddingReminderList.toggle()
                 } label: {
                     Text("Done")
                 }
-                .disabled(listTitle.isEmpty)
+                .disabled(viewModel.listTitle.isEmpty)
             }
         }
     }
@@ -71,8 +67,10 @@ struct CreateReminderListView: View {
 struct CreateReminderListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            CreateReminderListView(isAddingReminderList: .constant(true))
-                .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+            CreateReminderListView(
+                isAddingReminderList: .constant(true),
+                viewModel: CreateReminderListViewModel(
+                    dataManager: CoreDataManager.preview))
         }
     }
 }

@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ReminderListRowView: View {
-    @Environment(\.managedObjectContext) var viewContext
     @Environment(\.editMode) private var editMode
     let reminderList: ReminderList
     @Binding var isEditingReminderList: Bool
     @Binding var isTemplate: Bool
+    @StateObject var viewModel = DisplayReminderListViewModel()
 
     var body: some View {
         HStack {
@@ -32,8 +32,7 @@ struct ReminderListRowView: View {
         .swipeActions(edge: .trailing, allowsFullSwipe: false) {
             Button {
                 withAnimation {
-                    viewContext.delete(reminderList)
-                    PersistenceController.save(viewContext)
+                    viewModel.delete(reminderList)
                 }
             } label: {
                 Image(systemName: "trash")
@@ -49,7 +48,8 @@ struct ReminderListRowView: View {
         }
         .sheet(isPresented: $isEditingReminderList) {
             NavigationStack {
-                EditReminderListView(isEditingReminderList: $isEditingReminderList, reminderList: reminderList)
+                EditReminderListView(isEditingReminderList: $isEditingReminderList,
+                                     reminderList: reminderList)
             }
         }
     }
@@ -57,15 +57,16 @@ struct ReminderListRowView: View {
 
 struct ReminderListRowView_Previews: PreviewProvider {
     static var previews: some View {
-        let reminderList = PersistenceController.reminderListForPreview()
+        let reminderList = CoreDataManager.reminderListForPreview()
         // swiftlint:disable:next redundant_discardable_let
-        let _ = PersistenceController.reminderForPreview(reminderList: reminderList)
+        let _ = CoreDataManager.reminderForPreview(reminderList: reminderList)
         return List {
             ReminderListRowView(
                 reminderList: reminderList,
                 isEditingReminderList: .constant(false),
-                isTemplate: .constant(false))
-                .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+                isTemplate: .constant(false),
+                viewModel: DisplayReminderListViewModel(
+                    dataManager: CoreDataManager.preview))
         }
     }
 }

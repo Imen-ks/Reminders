@@ -8,20 +8,10 @@
 import SwiftUI
 
 struct EditImageView: View {
+    @State private var pictures: [Picture] = []
     let reminder: Reminder
     @Binding var removedPictures: [Picture]
-    var fetchRequest: FetchRequest<Picture>
-    var storedPictures: FetchedResults<Picture> {
-        fetchRequest.wrappedValue
-    }
-
-    @State private var pictures: [Picture] = []
-
-    init(reminder: Reminder, removedPictures: Binding<[Picture]>) {
-        self.reminder = reminder
-        self._removedPictures = removedPictures
-        self.fetchRequest = Picture.fetchPictures(in: reminder)
-    }
+    @Binding var storedPictures: [Picture]
 
     var body: some View {
         Section {
@@ -61,14 +51,16 @@ struct EditImageView: View {
 
 struct EditImageView_Previews: PreviewProvider {
     @State static var removedPictures: [Picture] = []
+    @State static var storedPictures: [Picture] = []
     static var previews: some View {
-        let reminderList = PersistenceController.reminderListForPreview()
-        let reminder = PersistenceController.reminderForPreview(reminderList: reminderList)
+        let reminderList = CoreDataManager.reminderListForPreview()
+        let reminder = CoreDataManager.reminderForPreview(reminderList: reminderList)
         // swiftlint:disable:next redundant_discardable_let
-        let _ = PersistenceController.pictureForPreview(reminder: reminder)
+        let _ = CoreDataManager.pictureForPreview(reminder: reminder)
         return Form {
-            EditImageView(reminder: reminder, removedPictures: $removedPictures)
-                .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+            EditImageView(reminder: reminder,
+                          removedPictures: $removedPictures,
+                          storedPictures: $storedPictures)
         }
     }
 }

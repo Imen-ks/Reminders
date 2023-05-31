@@ -8,19 +8,17 @@
 import SwiftUI
 
 struct HomeScreenView: View {
-    @Environment(\.managedObjectContext) var viewContext
     @Environment(\.isSearching) private var isSearching
-    @State private var sortDescriptor: SortDescriptor = .dateCreated
-    @State private var searchText: String = ""
+    @StateObject var viewModel = SummaryViewModel()
 
     var body: some View {
         NavigationStack {
             Section {
-                SearchView(searchText: $searchText)
-                    .searchable(text: $searchText)
-                if searchText.isEmpty {
-                    SummaryView()
-                    ReminderListView(sortDescriptor: $sortDescriptor)
+                SearchView(viewModel: viewModel)
+                    .searchable(text: $viewModel.searchText)
+                if viewModel.searchText.isEmpty {
+                    SummaryView(viewModel: viewModel)
+                    ReminderListView()
                         .offset(x: 0, y: -20)
                 }
             }
@@ -31,8 +29,7 @@ struct HomeScreenView: View {
 
 struct HomeScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeScreenView()
-            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        HomeScreenView(viewModel: SummaryViewModel(dataManager: .preview))
     }
 }
 
