@@ -48,4 +48,8 @@ final class DisplayReminderListViewModel: ObservableObject {
         }
         dataManager.save()
     }
+
+    func findList(withIdentifier: String) -> ReminderList? {
+        dataManager.findList(withIdentifier: withIdentifier)
+    }
 }

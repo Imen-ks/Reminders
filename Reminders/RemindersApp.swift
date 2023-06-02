@@ -10,11 +10,14 @@ import SwiftUI
 @main
 struct RemindersApp: App {
     let dataManager = CoreDataManager.shared.persistenceController
+    let actionService = ActionService.shared
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     var body: some Scene {
         WindowGroup {
             HomeScreenView()
                 .environment(\.managedObjectContext, dataManager.container.viewContext)
+                .environmentObject(actionService)
         }
     }
 }

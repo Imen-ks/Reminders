@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A80FB0F82A29158A00370227 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80FB0F72A29158A00370227 /* AppDelegate.swift */; };
+		A80FB0FA2A2915B000370227 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80FB0F92A2915B000370227 /* Action.swift */; };
 		A824EF0C2A139CB10047A3E5 /* EditImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A824EF0B2A139CB10047A3E5 /* EditImageView.swift */; };
 		A824EF0E2A13AD330047A3E5 /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A824EF0D2A13AD330047A3E5 /* PhotoPickerView.swift */; };
 		A824EF102A141B040047A3E5 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A824EF0F2A141B040047A3E5 /* SummaryView.swift */; };
@@ -101,6 +103,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A80FB0F72A29158A00370227 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A80FB0F92A2915B000370227 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		A80FB0FB2A2920F500370227 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A824EF0B2A139CB10047A3E5 /* EditImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditImageView.swift; sourceTree = "<group>"; };
 		A824EF0D2A13AD330047A3E5 /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
 		A824EF0F2A141B040047A3E5 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
@@ -228,7 +233,10 @@
 		A855E4EF2A0A361000C90C24 /* Reminders */ = {
 			isa = PBXGroup;
 			children = (
+				A80FB0FB2A2920F500370227 /* Info.plist */,
 				A855E4F02A0A361000C90C24 /* RemindersApp.swift */,
+				A80FB0F72A29158A00370227 /* AppDelegate.swift */,
+				A80FB0F92A2915B000370227 /* Action.swift */,
 				A855E4F92A0A361200C90C24 /* Persistence.swift */,
 				A855E4FB2A0A361200C90C24 /* Reminders.xcdatamodeld */,
 				A887A4EA2A1BB0D500C4BACB /* CoreDataManager */,
@@ -540,7 +548,9 @@
 				A8A8B8612A27D76F0032A9C3 /* CreateReminderViewModel.swift in Sources */,
 				A89E8D122A0EE46D006CDCEF /* ReminderSortMenuView.swift in Sources */,
 				A855E4FA2A0A361200C90C24 /* Persistence.swift in Sources */,
+				A80FB0F82A29158A00370227 /* AppDelegate.swift in Sources */,
 				A88FCE4C2A10287B00881D79 /* FlagView.swift in Sources */,
+				A80FB0FA2A2915B000370227 /* Action.swift in Sources */,
 				A824EF232A1707120047A3E5 /* AddSubtaskView.swift in Sources */,
 				A8698B682A0C5ED000259E3C /* HomeScreenView.swift in Sources */,
 				A855E4F12A0A361000C90C24 /* RemindersApp.swift in Sources */,
@@ -752,6 +762,7 @@
 				DEVELOPMENT_TEAM = Q34TQR7SAN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Reminders/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -781,6 +792,7 @@
 				DEVELOPMENT_TEAM = Q34TQR7SAN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Reminders/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -30,6 +30,16 @@ extension CoreDataManager {
         save()
     }
 
+    func findList(withIdentifier id: String) -> ReminderList? {
+        guard
+            let uri = URL(string: id),
+            let objectID = persistenceController.container
+                .persistentStoreCoordinator.managedObjectID(forURIRepresentation: uri),
+            let list = persistenceController.container.viewContext.object(with: objectID) as? ReminderList
+        else { return nil }
+        return list
+    }
+
     // swiftlint:disable:next function_parameter_count
     func addReminder(title: String,
                      notes: String,
