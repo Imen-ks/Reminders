@@ -60,7 +60,6 @@ class CoreDataManager: ObservableObject {
             reminder2.title = "Administrative stuff"
             reminder2.notes = ""
             reminder2.dateCreated = Date.now
-            reminder2.dueDate = Date.now
             reminder2.dueHour = Date.now
             reminder2.dueDate = Date.now.addingTimeInterval(86400 * 15)
             reminder2.priority = 2
@@ -147,7 +146,9 @@ class CoreDataManager: ObservableObject {
         fetchSubtasks()
         fetchPictures()
     }
+}
 
+extension CoreDataManager {
     func delete(_ object: NSManagedObject) {
         persistenceController.container.viewContext.delete(object)
         save()

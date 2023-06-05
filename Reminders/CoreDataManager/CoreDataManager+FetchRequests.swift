@@ -48,8 +48,7 @@ extension CoreDataManager {
         if sortDescriptor == .none {
             request.sortDescriptors = [
                 NSSortDescriptor(key: #keyPath(Reminder.order), ascending: true),
-                NSSortDescriptor(key: #keyPath(Reminder.dateCreated), ascending: true)
-            ]
+                NSSortDescriptor(key: #keyPath(Reminder.dateCreated), ascending: true)]
             do {
                 return try persistenceController.container.viewContext.fetch(request)
             } catch {
@@ -79,7 +78,9 @@ extension CoreDataManager {
                 print(error)
             }
         } else {
-            request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Reminder.priority), ascending: false)]
+            request.sortDescriptors = [
+                NSSortDescriptor(key: #keyPath(Reminder.priority), ascending: false),
+                NSSortDescriptor(key: #keyPath(Reminder.dateCreated), ascending: true)]
             do {
                 return try persistenceController.container.viewContext.fetch(request)
             } catch {

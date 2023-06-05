@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		A80FB0F82A29158A00370227 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80FB0F72A29158A00370227 /* AppDelegate.swift */; };
 		A80FB0FA2A2915B000370227 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80FB0F92A2915B000370227 /* Action.swift */; };
+		A80FB0FD2A2BE93600370227 /* TestCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80FB0FC2A2BE93600370227 /* TestCoreDataManager.swift */; };
+		A80FB0FF2A2D30E100370227 /* TestCoreDataManager+Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80FB0FE2A2D30E100370227 /* TestCoreDataManager+Methods.swift */; };
+		A80FB1012A2D409500370227 /* TestCoreDataManager+FetchRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80FB1002A2D409500370227 /* TestCoreDataManager+FetchRequests.swift */; };
 		A824EF0C2A139CB10047A3E5 /* EditImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A824EF0B2A139CB10047A3E5 /* EditImageView.swift */; };
 		A824EF0E2A13AD330047A3E5 /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A824EF0D2A13AD330047A3E5 /* PhotoPickerView.swift */; };
 		A824EF102A141B040047A3E5 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A824EF0F2A141B040047A3E5 /* SummaryView.swift */; };
@@ -25,6 +28,8 @@
 		A824EF292A19144A0047A3E5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A824EF282A19144A0047A3E5 /* SearchView.swift */; };
 		A824EF2B2A1959890047A3E5 /* SelectTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A824EF2A2A1959890047A3E5 /* SelectTemplateView.swift */; };
 		A83F83792A1173F6006543E2 /* EditReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83F83782A1173F6006543E2 /* EditReminderView.swift */; };
+		A84FDEBC2A2E023A00BD9BAD /* RandomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84FDEBB2A2E023A00BD9BAD /* RandomColor.swift */; };
+		A84FDEBE2A2E028500BD9BAD /* RandomDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84FDEBD2A2E028500BD9BAD /* RandomDate.swift */; };
 		A855E4F12A0A361000C90C24 /* RemindersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A855E4F02A0A361000C90C24 /* RemindersApp.swift */; };
 		A855E4F52A0A361200C90C24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A855E4F42A0A361200C90C24 /* Assets.xcassets */; };
 		A855E4F82A0A361200C90C24 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A855E4F72A0A361200C90C24 /* Preview Assets.xcassets */; };
@@ -106,6 +111,9 @@
 		A80FB0F72A29158A00370227 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A80FB0F92A2915B000370227 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		A80FB0FB2A2920F500370227 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A80FB0FC2A2BE93600370227 /* TestCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoreDataManager.swift; sourceTree = "<group>"; };
+		A80FB0FE2A2D30E100370227 /* TestCoreDataManager+Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestCoreDataManager+Methods.swift"; sourceTree = "<group>"; };
+		A80FB1002A2D409500370227 /* TestCoreDataManager+FetchRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestCoreDataManager+FetchRequests.swift"; sourceTree = "<group>"; };
 		A824EF0B2A139CB10047A3E5 /* EditImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditImageView.swift; sourceTree = "<group>"; };
 		A824EF0D2A13AD330047A3E5 /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
 		A824EF0F2A141B040047A3E5 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
@@ -122,6 +130,8 @@
 		A824EF282A19144A0047A3E5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		A824EF2A2A1959890047A3E5 /* SelectTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTemplateView.swift; sourceTree = "<group>"; };
 		A83F83782A1173F6006543E2 /* EditReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditReminderView.swift; sourceTree = "<group>"; };
+		A84FDEBB2A2E023A00BD9BAD /* RandomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomColor.swift; sourceTree = "<group>"; };
+		A84FDEBD2A2E028500BD9BAD /* RandomDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomDate.swift; sourceTree = "<group>"; };
 		A855E4ED2A0A361000C90C24 /* Reminders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reminders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A855E4F02A0A361000C90C24 /* RemindersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersApp.swift; sourceTree = "<group>"; };
 		A855E4F42A0A361200C90C24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -210,6 +220,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A84FDEBA2A2E021F00BD9BAD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A84FDEBB2A2E023A00BD9BAD /* RandomColor.swift */,
+				A84FDEBD2A2E028500BD9BAD /* RandomDate.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		A855E4E42A0A361000C90C24 = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +280,10 @@
 			isa = PBXGroup;
 			children = (
 				A855E5062A0A361200C90C24 /* RemindersTests.swift */,
+				A84FDEBA2A2E021F00BD9BAD /* Helpers */,
+				A80FB0FC2A2BE93600370227 /* TestCoreDataManager.swift */,
+				A80FB0FE2A2D30E100370227 /* TestCoreDataManager+Methods.swift */,
+				A80FB1002A2D409500370227 /* TestCoreDataManager+FetchRequests.swift */,
 			);
 			path = RemindersTests;
 			sourceTree = "<group>";
@@ -608,6 +631,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A84FDEBE2A2E028500BD9BAD /* RandomDate.swift in Sources */,
+				A80FB0FF2A2D30E100370227 /* TestCoreDataManager+Methods.swift in Sources */,
+				A84FDEBC2A2E023A00BD9BAD /* RandomColor.swift in Sources */,
+				A80FB1012A2D409500370227 /* TestCoreDataManager+FetchRequests.swift in Sources */,
+				A80FB0FD2A2BE93600370227 /* TestCoreDataManager.swift in Sources */,
 				A855E5072A0A361200C90C24 /* RemindersTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
