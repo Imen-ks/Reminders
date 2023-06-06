@@ -18,7 +18,6 @@ class CoreDataManager: ObservableObject {
 
     static let shared = CoreDataManager(type: .normal)
     static let preview = CoreDataManager(type: .preview)
-    static let testing = CoreDataManager(type: .testing)
 
     @Published var reminderLists: [ReminderList] = []
     @Published var reminderTemplates: [ReminderList] = []

@@ -28,8 +28,6 @@ struct ReminderListView: View {
                                 isEditingReminderList: $isEditingReminderList,
                                 isTemplate: $isTemplate)
                             .contentShape(Rectangle())
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(Color(UIColor.lightGray))
                         }
                         .onTapGesture {
                             selectedList = reminderList

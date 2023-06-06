@@ -49,15 +49,20 @@ struct AddSubtaskView: View {
                 .padding(.horizontal, 30)
             }
         }
+        .padding(.top)
+        .navigationBarTitle("Subtasks", displayMode: .inline)
         .listStyle(.plain)
         .onDisappear { subtasks = newSubtasks }
+        .background(Color(UIColor.secondarySystemBackground))
     }
 }
 
 struct AddSubtaskView_Previews: PreviewProvider {
     @State static var subtasks: [String] = []
-    @State static var newSubtasks: [String] = []
+    @State static var newSubtasks: [String] = ["New subtask"]
     static var previews: some View {
-        AddSubtaskView(subtasks: $subtasks, newSubtasks: $newSubtasks)
+        NavigationStack {
+            AddSubtaskView(subtasks: $subtasks, newSubtasks: $newSubtasks)
+        }
     }
 }

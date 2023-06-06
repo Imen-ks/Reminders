@@ -11,6 +11,7 @@ struct SelectTemplateView: View {
     @State private var isEditingReminderList = false
     @State private var isTemplate = true
     @State private var isEditingTemplate = false
+    @State private var selectedList: ReminderList?
     @State private var isTapped = false
     @Binding var isAddingReminderList: Bool
     @StateObject var viewModel = SelectTemplateViewModel()
@@ -36,31 +37,31 @@ struct SelectTemplateView: View {
                         Button("Cancel", role: .cancel) { }
                     }
                     Spacer()
-                    .overlay {
-                        Button {
+                    Image(systemName: "info.circle")
+                        .font(.title2)
+                        .foregroundColor(.accentColor)
+                        .onTapGesture {
+                            selectedList = reminderTemplate
                             isEditingTemplate.toggle()
-                        } label: {
-                            Image(systemName: "info.circle")
-                                .font(.title2)
-                                .foregroundColor(.accentColor)
                         }
-                        .buttonStyle(.plain)
-                        .sheet(isPresented: $isEditingTemplate) {
-                            NavigationStack {
-                                RemindersView(
-                                    reminderList: reminderTemplate,
-                                    sortDescriptor: $viewModel.sortDescriptor,
-                                    isTemplate: $isTemplate)
-                                .toolbar {
-                                    ToolbarItem(placement: .navigationBarTrailing) {
-                                        Button {
-                                            isEditingTemplate.toggle()
-                                        } label: {
-                                            Text("Done")
-                                        }
-
-                                    }
-                                }
+                }
+            }
+        }
+        .sheet(isPresented: .constant(isEditingTemplate && selectedList != nil)) {
+            NavigationStack {
+                if let selectedList = selectedList {
+                    RemindersView(
+                        reminderList: selectedList,
+                        sortDescriptor: $viewModel.sortDescriptor,
+                        isTemplate: $isTemplate)
+                    .interactiveDismissDisabled()
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button {
+                                isEditingTemplate.toggle()
+                                self.selectedList = nil
+                            } label: {
+                                Text("Done")
                             }
                         }
                     }

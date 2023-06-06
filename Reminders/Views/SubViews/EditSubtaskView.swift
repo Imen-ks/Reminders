@@ -84,6 +84,8 @@ struct EditSubtaskView: View {
             subtasks = added
         }
         .navigationBarTitle("Subtasks", displayMode: .inline)
+        .listStyle(.grouped)
+        .background(Color(UIColor.secondarySystemBackground))
     }
 
     func substract(_ array: [Subtask], from secondArray: [Subtask] ) -> [Subtask] {
@@ -100,16 +102,17 @@ struct EditSubtaskView: View {
 }
 
 struct EditSubtaskView_Previews: PreviewProvider {
-    @State static var subtasks: [String] = []
+    static var reminderList = CoreDataManager.reminderListForPreview()
+    static var reminder = CoreDataManager.reminderForPreview(reminderList: reminderList)
+    static var subtask = CoreDataManager.subtaskForPreview(reminder: reminder)
+    @State static var subtasks: [String] = ["f"]
     @State static var removedSubtasks: [Subtask] = []
-    @State static var updated: [Subtask] = []
+    @State static var updated: [Subtask] = [subtask]
     @State static var removed: [Subtask] = []
-    @State static var added: [String] = []
+    @State static var added: [String] = ["New Subtask"]
     @State static var storedSubtasks: [Subtask] = []
     static var previews: some View {
-        return NavigationStack {
-            let reminderList = CoreDataManager.reminderListForPreview()
-            let reminder = CoreDataManager.reminderForPreview(reminderList: reminderList)
+        NavigationStack {
             EditSubtaskView(reminder: reminder,
                             subtasks: $subtasks,
                             removedSubtasks: $removedSubtasks,

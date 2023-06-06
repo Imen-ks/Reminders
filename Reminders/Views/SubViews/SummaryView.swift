@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-enum ReminderPredicate {
-    case all
-    case today
-    case scheduled
-    case flagged
-    case completed
-}
-
 struct SummaryView: View {
     @State var todayIsTapped = false
     @State var scheduledIsTapped = false
@@ -34,7 +26,9 @@ struct SummaryView: View {
                      color: .blue,
                      isTapped: $todayIsTapped)
             .navigationDestination(isPresented: $todayIsTapped, destination: {
-                TodayRemindersView(viewModel: viewModel)
+                DetailsView(viewModel: viewModel,
+                            predicate: .today,
+                            color: .blue)
             })
             CardView(name: "Scheduled",
                      icon: "calendar",
@@ -42,7 +36,9 @@ struct SummaryView: View {
                      color: .red,
                      isTapped: $scheduledIsTapped)
             .navigationDestination(isPresented: $scheduledIsTapped, destination: {
-                ScheduledRemindersView(viewModel: viewModel)
+                DetailsView(viewModel: viewModel,
+                            predicate: .scheduled,
+                            color: .red)
             })
             CardView(name: "All",
                      icon: "tray.fill",
@@ -50,7 +46,9 @@ struct SummaryView: View {
                      color: .black,
                      isTapped: $allIsTapped)
             .navigationDestination(isPresented: $allIsTapped, destination: {
-                AllRemindersView(viewModel: viewModel)
+                DetailsView(viewModel: viewModel,
+                            predicate: .all,
+                            color: .black)
             })
             CardView(name: "Flagged",
                      icon: "flag.fill",
@@ -58,7 +56,9 @@ struct SummaryView: View {
                      color: .orange,
                      isTapped: $flaggedIsTapped)
             .navigationDestination(isPresented: $flaggedIsTapped, destination: {
-                FlaggedRemindersView(viewModel: viewModel)
+                DetailsView(viewModel: viewModel,
+                            predicate: .flagged,
+                            color: .orange)
             })
             CardView(name: "Completed",
                      icon: "checkmark",
@@ -66,7 +66,9 @@ struct SummaryView: View {
                      color: .gray,
                      isTapped: $completedIsTapped)
             .navigationDestination(isPresented: $completedIsTapped, destination: {
-                CompletedRemindersView(viewModel: viewModel)
+                DetailsView(viewModel: viewModel,
+                            predicate: .completed,
+                            color: .gray)
             })
         }
         .padding()

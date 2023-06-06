@@ -27,6 +27,8 @@ struct ReminderListRowView: View {
             if editMode?.wrappedValue.isEditing == false && !isTemplate {
                 Text("\(reminderList.reminderCount)")
                     .foregroundColor(.secondary)
+                Image(systemName: "chevron.right")
+                    .foregroundColor(Color(UIColor.lightGray))
             }
         }
         .swipeActions(edge: .trailing, allowsFullSwipe: false) {

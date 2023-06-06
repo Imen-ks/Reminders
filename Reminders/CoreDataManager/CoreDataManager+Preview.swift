@@ -30,8 +30,8 @@ extension CoreDataManager {
         let date = Calendar.current.date(from: components)
         let reminder = Reminder(context: context)
         reminder.id = UUID()
-        reminder.title = "New reminder"
-        reminder.notes = "New notes"
+        reminder.title = "This is a reminder"
+        reminder.notes = "These are notes"
         reminder.dateCreated = Date.now
         reminder.dueDate = date
         reminder.dueHour = date
@@ -44,7 +44,7 @@ extension CoreDataManager {
 
     static func subtaskForPreview(reminder: Reminder) -> Subtask {
         let subtask = Subtask(context: context)
-        subtask.title = "New subtask"
+        subtask.title = "This is a subtask"
         subtask.dateCreated = Date.now
         subtask.reminder = reminder
         return subtask
