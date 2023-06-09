@@ -14,19 +14,19 @@ final class SummaryViewModel: ObservableObject {
     @Published var searchText: String = ""
     @Published var cards: [Card] = [
         Card(icon: "clock.badge.fill", color: .blue,
-             keyPath: \SummaryViewModel.todayReminders,
+             keyPath: \Self.todayReminders,
              predicate: .today),
         Card(icon: "calendar", color: .red,
-             keyPath: \SummaryViewModel.scheduledReminders,
+             keyPath: \Self.scheduledReminders,
              predicate: .scheduled),
         Card(icon: "tray.fill", color: .black,
-             keyPath: \SummaryViewModel.allReminders,
+             keyPath: \Self.allReminders,
              predicate: .all),
         Card(icon: "flag.fill", color: .orange,
-             keyPath: \SummaryViewModel.flaggedReminders,
+             keyPath: \Self.flaggedReminders,
              predicate: .flagged),
         Card(icon: "checkmark", color: .gray,
-             keyPath: \SummaryViewModel.completedReminders,
+             keyPath: \Self.completedReminders,
              predicate: .completed)
     ]
 

@@ -31,7 +31,6 @@
 		A855E4F82A0A361200C90C24 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A855E4F72A0A361200C90C24 /* Preview Assets.xcassets */; };
 		A855E4FA2A0A361200C90C24 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A855E4F92A0A361200C90C24 /* Persistence.swift */; };
 		A855E4FD2A0A361200C90C24 /* Reminders.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A855E4FB2A0A361200C90C24 /* Reminders.xcdatamodeld */; };
-		A855E5072A0A361200C90C24 /* RemindersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A855E5062A0A361200C90C24 /* RemindersTests.swift */; };
 		A855E5112A0A361200C90C24 /* RemindersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A855E5102A0A361200C90C24 /* RemindersUITests.swift */; };
 		A855E5132A0A361200C90C24 /* RemindersUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A855E5122A0A361200C90C24 /* RemindersUITestsLaunchTests.swift */; };
 		A855E5232A0A88B700C90C24 /* ReminderList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A855E5222A0A88B700C90C24 /* ReminderList+CoreDataClass.swift */; };
@@ -131,7 +130,6 @@
 		A855E4F92A0A361200C90C24 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		A855E4FC2A0A361200C90C24 /* Reminders.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reminders.xcdatamodel; sourceTree = "<group>"; };
 		A855E5022A0A361200C90C24 /* RemindersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RemindersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A855E5062A0A361200C90C24 /* RemindersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersTests.swift; sourceTree = "<group>"; };
 		A855E50C2A0A361200C90C24 /* RemindersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RemindersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A855E5102A0A361200C90C24 /* RemindersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersUITests.swift; sourceTree = "<group>"; };
 		A855E5122A0A361200C90C24 /* RemindersUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -271,7 +269,6 @@
 		A855E5052A0A361200C90C24 /* RemindersTests */ = {
 			isa = PBXGroup;
 			children = (
-				A855E5062A0A361200C90C24 /* RemindersTests.swift */,
 				A84FDEBA2A2E021F00BD9BAD /* Helpers */,
 				A80FB0FC2A2BE93600370227 /* TestCoreDataManager.swift */,
 				A80FB0FE2A2D30E100370227 /* TestCoreDataManager+Methods.swift */,
@@ -620,7 +617,6 @@
 				A84FDEBC2A2E023A00BD9BAD /* RandomColor.swift in Sources */,
 				A80FB1012A2D409500370227 /* TestCoreDataManager+FetchRequests.swift in Sources */,
 				A80FB0FD2A2BE93600370227 /* TestCoreDataManager.swift in Sources */,
-				A855E5072A0A361200C90C24 /* RemindersTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
