@@ -17,23 +17,9 @@ enum ReminderPredicate: String {
 
 struct DetailsView: View {
     @StateObject var viewModel: SummaryViewModel
+    var keyPath: KeyPath<SummaryViewModel, [Reminder]>
     var predicate: ReminderPredicate
     var color: Color
-
-    var reminders: [Reminder] {
-        if predicate == .today {
-            return viewModel.todayReminders
-        } else if predicate == .scheduled {
-            return viewModel.scheduledReminders
-        } else if predicate == .all {
-            return viewModel.allReminders
-        } else if predicate == .flagged {
-            return viewModel.flaggedReminders
-        } else if predicate == .completed {
-            return viewModel.completedReminders
-        }
-        return [Reminder]()
-    }
 
     var reminderLists: [ReminderList] {
         Set(viewModel.allReminders.map { $0.list }).sorted { $0.order < $1.order }
@@ -47,7 +33,7 @@ struct DetailsView: View {
                         .font(.title3)
                         .foregroundColor(Color(list.color))
                         .fontWeight(.bold)
-                    ForEach(reminders.filter { $0.list == list }, id: \.self) { reminder in
+                    ForEach(viewModel[keyPath: keyPath].filter { $0.list == list }, id: \.self) { reminder in
                         Section {
                         ReminderRowView(reminderList: reminder.list,
                                         reminder: reminder)
@@ -61,7 +47,7 @@ struct DetailsView: View {
                     }
                 }
             } else {
-                ForEach(reminders, id: \.self) { reminder in
+                ForEach(viewModel[keyPath: keyPath], id: \.self) { reminder in
                     ReminderRowView(reminderList: reminder.list,
                                     reminder: reminder)
                     ForEach(viewModel.subtasks, id: \.self) { subtask in
@@ -80,11 +66,11 @@ struct DetailsView: View {
 }
 
 struct DetailsView_Previews: PreviewProvider {
-    static var predicate = ReminderPredicate.today
     static var previews: some View {
         NavigationStack {
             DetailsView(viewModel: SummaryViewModel(dataManager: .preview),
-                        predicate: .today,
+                        keyPath: \SummaryViewModel.allReminders,
+                        predicate: .all,
                         color: .blue)
         }
     }

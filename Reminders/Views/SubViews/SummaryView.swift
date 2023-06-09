@@ -18,7 +18,7 @@ struct Card: Identifiable {
 struct SummaryView: View {
     @State var isTapped = false
     @State var predicate: ReminderPredicate?
-
+    @State var keyPath: KeyPath<SummaryViewModel, [Reminder]>?
     @StateObject var viewModel: SummaryViewModel
 
     var gridColumns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 2)
@@ -33,11 +33,13 @@ struct SummaryView: View {
                     TapGesture()
                         .onEnded { _ in
                             self.predicate = card.predicate
+                            self.keyPath = card.keyPath
                         }
                 )
                 .navigationDestination(isPresented: $isTapped, destination: {
-                    if let predicate = self.predicate {
+                    if let predicate = self.predicate, let keyPath = self.keyPath {
                         DetailsView(viewModel: viewModel,
+                                    keyPath: keyPath,
                                     predicate: predicate,
                                     color: card.color)
                     }
@@ -45,7 +47,10 @@ struct SummaryView: View {
             }
         }
         .padding()
-        .onAppear { self.predicate = nil }
+        .onAppear {
+            self.predicate = nil
+            self.keyPath = nil
+        }
     }
 }
 
