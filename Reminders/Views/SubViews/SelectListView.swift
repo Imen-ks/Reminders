@@ -43,6 +43,7 @@ struct SelectListView: View {
 struct SelectListView_Previews: PreviewProvider {
     @State static var reminderList = CoreDataManager.reminderListForPreview()
     static var previews: some View {
-        SelectListView(reminderList: $reminderList)
+        SelectListView(reminderList: $reminderList,
+                       viewModel: DisplayReminderListViewModel(dataManager: .preview))
     }
 }

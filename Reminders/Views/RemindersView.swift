@@ -85,11 +85,8 @@ struct RemindersView_Previews: PreviewProvider {
     @State static var sortDescriptor = SortDescriptor.dateCreated
     static var previews: some View {
         let reminderList = CoreDataManager.reminderListForPreview()
-        let reminder = CoreDataManager.reminderForPreview(reminderList: reminderList)
         // swiftlint:disable:next redundant_discardable_let
-        let _ = CoreDataManager.pictureForPreview(reminder: reminder)
-        // swiftlint:disable:next redundant_discardable_let
-        let _ = CoreDataManager.subtaskForPreview(reminder: reminder)
+        let _ = CoreDataManager.reminderForPreview(reminderList: reminderList)
         return NavigationStack {
             RemindersView(
                 reminderList: reminderList,

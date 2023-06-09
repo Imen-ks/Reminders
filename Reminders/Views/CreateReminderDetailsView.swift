@@ -34,7 +34,6 @@ struct CreateReminderDetailsView: View {
                     HStack {
                         Text("Subtasks")
                         Spacer()
-                        Spacer()
                         if viewModel.newSubtasks.count > 0 {
                             Text("\(viewModel.newSubtasks.count)")
                                 .foregroundColor(.secondary)

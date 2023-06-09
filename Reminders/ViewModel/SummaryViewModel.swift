@@ -12,6 +12,23 @@ import Combine
 final class SummaryViewModel: ObservableObject {
     @Published var dataManager: CoreDataManager
     @Published var searchText: String = ""
+    @Published var cards: [Card] = [
+        Card(icon: "clock.badge.fill", color: .blue,
+             keyPath: \SummaryViewModel.todayReminders,
+             predicate: .today),
+        Card(icon: "calendar", color: .red,
+             keyPath: \SummaryViewModel.scheduledReminders,
+             predicate: .scheduled),
+        Card(icon: "tray.fill", color: .black,
+             keyPath: \SummaryViewModel.allReminders,
+             predicate: .all),
+        Card(icon: "flag.fill", color: .orange,
+             keyPath: \SummaryViewModel.flaggedReminders,
+             predicate: .flagged),
+        Card(icon: "checkmark", color: .gray,
+             keyPath: \SummaryViewModel.completedReminders,
+             predicate: .completed)
+    ]
 
     var anyCancellable: AnyCancellable?
 

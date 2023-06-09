@@ -148,8 +148,6 @@ struct ReminderRowView_Previews: PreviewProvider {
     static var previews: some View {
         let reminderList = CoreDataManager.reminderListForPreview()
         let reminder = CoreDataManager.reminderForPreview(reminderList: reminderList)
-        // swiftlint:disable:next redundant_discardable_let
-        let _ = CoreDataManager.pictureForPreview(reminder: reminder)
         return NavigationStack {
             List {
                 ReminderRowView(reminderList: reminderList,

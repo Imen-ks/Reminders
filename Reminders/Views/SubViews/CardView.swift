@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct CardView: View {
-    var name: String
-    var icon: String
+    var card: Card
     var count: Int
-    var color: Color
     @Binding var isTapped: Bool
 
     var body: some View {
@@ -22,9 +20,9 @@ struct CardView: View {
                 HStack {
                     ZStack {
                         Circle()
-                            .fill(color)
+                            .fill(card.color)
                             .frame(width: 40)
-                        Image(systemName: icon)
+                        Image(systemName: card.icon)
                             .foregroundColor(.white)
                             .bold()
                     }
@@ -33,7 +31,7 @@ struct CardView: View {
                         .font(.system(.title, design: .rounded, weight: .bold))
                         .padding(.trailing, 5)
                 }
-                Text(name)
+                Text(card.predicate.rawValue)
                     .fontDesign(.rounded)
                     .fontWeight(.bold)
                     .foregroundColor(.secondary)
@@ -52,10 +50,12 @@ struct CardView_Previews: PreviewProvider {
     static var gridColumns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 2)
     static var previews: some View {
         LazyVGrid(columns: gridColumns, spacing: 15) {
-            CardView(name: "Today",
-                     icon: "clock.badge.fill",
+            CardView(card: Card(
+                icon: "clock.badge.fill",
+                color: .blue,
+                keyPath: \SummaryViewModel.todayReminders,
+                predicate: .today),
                      count: 8,
-                     color: .blue,
                      isTapped: $isTapped)
         }
         .padding()

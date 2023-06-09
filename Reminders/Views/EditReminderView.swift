@@ -124,8 +124,6 @@ struct EditReminderView_Previews: PreviewProvider {
         let reminderList = CoreDataManager.reminderListForPreview()
         let reminder = CoreDataManager.reminderForPreview(reminderList: reminderList)
         // swiftlint:disable:next redundant_discardable_let
-        let _ = CoreDataManager.pictureForPreview(reminder: reminder)
-        // swiftlint:disable:next redundant_discardable_let
         let _ = CoreDataManager.subtaskForPreview(reminder: reminder)
         return NavigationStack {
             EditReminderView(reminderList: reminderList, isShowingDetails: .constant(false), reminder: reminder)
