@@ -1,4 +1,7 @@
 # Reminders
+
+![featured](https://github.com/Imen-ks/Reminders/blob/main/Reminders/Assets.xcassets/Reminders.png)
+
 Xcode project built in SwiftUI recreating the iOS Reminders application.  
 Project combining Core Data as a data persistence tool and MVVM as a design pattern for the app architecture.
 
